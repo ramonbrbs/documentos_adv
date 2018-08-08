@@ -27,10 +27,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+JET_SIDE_MENU_COMPACT = True
 
+JET_SIDE_MENU_ITEMS = [
+
+    {'label': 'Contratos',
+    'items': [    
+        {'label': 'URL', 'url': 'http://example.com', 'url_blank': True},
+        {'label': 'Novo', 'url': {'type':'reverse', 'name':'gerar'}}
+            ]
+    },
+    {'app_label': 'clientes', 'items': [
+        {'name': 'cliente','label':"Listar"},
+    ]}
+]
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [    
     'jet',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'advogados',
     'clientes',
+    'contratos',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +135,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'advogados.Usuario'

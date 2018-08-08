@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Ramon\\AppData\\Local\\conda\\conda\\envs\\contratos2\\python.exe"
+    "python.pythonPath": "C:\\MiniConda3\\envs\\bruno\\python.exe",
+    "python.linting.pylintEnabled": false
 }

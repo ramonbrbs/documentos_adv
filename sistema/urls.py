@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
+from contratos import views
 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
+    url(r'^procuracao/', views.proc2, name='procuracao'),
+    url(r'gerar/', views.gerarContratos, name='gerar'),
 ]

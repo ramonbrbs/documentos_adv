@@ -1,0 +1,16 @@
+
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1 id="site-name">My custom Admin</h1>
+
+<body>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+
+</body>
+
+
+{% endblock %}
