@@ -19,6 +19,7 @@ from django.conf.urls import url,include
 from contratos import views
 
 urlpatterns = [
+    path('', admin.site.urls),
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
     url(r'^procuracao/', views.proc2, name='procuracao'),
