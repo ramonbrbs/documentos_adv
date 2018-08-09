@@ -25,7 +25,7 @@ def render_to_pdf2(template_src, context_dict={}):
 
 def proc2(request):
     template = get_template('2.html')
-    html  = template.render({})
+    html  = template.renderp({})
     
 
 def procuracao(request):
