@@ -1,26 +1,16 @@
 from django.shortcuts import render,redirect
 from clientes.models import Cliente
 from django.template.loader import render_to_string
-from weasyprint import HTML
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.views.generic import View
 import tempfile
-from xhtml2pdf import pisa
 from io import BytesIO
 import pdfkit
 from .forms import GerarContratoForm
 # Create your views here.
 
 
-def render_to_pdf(template_src, context_dict={}):
-    template = get_template(template_src)
-    html  = template.render(context_dict)
-    result = BytesIO()
-    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)
-    if not pdf.err:
-        return HttpResponse(result.getvalue(), content_type='application/pdf')
-    return None
 
 def render_to_pdf2(template_src, context_dict={}):
     template = get_template(template_src)
