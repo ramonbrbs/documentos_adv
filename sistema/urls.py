@@ -22,5 +22,9 @@ urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
     url(r'^procuracao/', views.proc2, name='procuracao'),
-    url(r'gerar/', views.gerarContratos, name='gerar'),
+    path('contratos/', include('contratos.urls')),
+
 ]
+
+admin.site.site_header = 'Gerador de Documentos'
+admin.site.site_title = 'Gerador de Documentos'

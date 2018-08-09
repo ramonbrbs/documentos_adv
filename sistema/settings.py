@@ -33,15 +33,17 @@ JET_SIDE_MENU_ITEMS = [
 
     {'label': 'Contratos',
     'items': [    
-        {'label': 'URL', 'url': 'http://example.com', 'url_blank': True},
-        {'label': 'Novo', 'url': {'type':'reverse', 'name':'gerar'}}
+        {'label': 'Procuração', 'url': {'type':'reverse', 'name':'contratos_procuracao'}}
             ]
     },
     {'app_label': 'clientes', 'items': [
         {'name': 'cliente','label':"Listar"},
+        {'label':"Cadastrar", 'url':{'type':'reverse', 'name': 'admin:clientes_cliente_add'}},
     ]}
 ]
 # Application definition
+
+
 
 INSTALLED_APPS = [    
     'jet',

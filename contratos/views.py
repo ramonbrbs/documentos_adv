@@ -41,17 +41,14 @@ def proc2(request):
 def procuracao(request):
     return render_to_pdf2('procuracao.html')
 
-def gerarContratos(request):
-    
-    
+def gerarProcuracao(request):
     if request.method == 'POST':
         form = GerarContratoForm(request.POST, user=request.user)
         if form.is_valid():
             cli = form.cleaned_data['cliente']
-            return render_to_pdf2('procuracao.html', {'cliente' : cli,'advogado':request.user})
-            
-
-        
+            acao = form.cleaned_data['tipo_acao']
+            print(acao)
+            return render_to_pdf2('procuracao.html', {'cliente' : cli,'advogado':request.user,'acao':acao})       
     else:
         form = GerarContratoForm(user=request.user)
-    return render(request,'gerar.html',{'form':form} )
+    return render(request,'gerar.html',{'form':form})
