@@ -25,7 +25,7 @@ SECRET_KEY = '9zhg64!^1fekwvn9*i09ufn0ofz*c*vh@kyfx1zcb*$cb)m&ch'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ramonbrbs.pythonanywhere.com']
 
 JET_SIDE_MENU_COMPACT = True
 
