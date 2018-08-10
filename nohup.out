@@ -1,0 +1,8 @@
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W005) URL namespace 'admin' isn't unique. You may not be able to reverse all URLs in this namespace
+
+System check identified 1 issue (0 silenced).
+[10/Aug/2018 18:56:39] "GET / HTTP/1.1" 200 15213
+[10/Aug/2018 18:56:39] "GET /jet/jsi18n/ HTTP/1.1" 200 7417

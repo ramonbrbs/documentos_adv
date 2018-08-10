@@ -25,7 +25,7 @@ SECRET_KEY = '9zhg64!^1fekwvn9*i09ufn0ofz*c*vh@kyfx1zcb*$cb)m&ch'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ramonbrbs.pythonanywhere.com']
+ALLOWED_HOSTS = ['python.rbarbosa.me']
 
 JET_SIDE_MENU_COMPACT = True
 
@@ -138,3 +138,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'advogados.Usuario'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
