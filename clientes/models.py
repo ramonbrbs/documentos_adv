@@ -24,6 +24,13 @@ class Cliente(models.Model):
     estado_civil = models.CharField(null=True,blank=True, max_length=70)
     endereco = models.CharField(null=True,blank=True, max_length=250)
     profissao = models.CharField(blank=True,null=True, max_length=150)
+    telefone = models.CharField(max_length=22)
+    banco = models.CharField(max_length=256)
+    banco_agencia = models.CharField(max_length=20)
+    banco_operacao = models.CharField(max_length=120)
+    banco_conta = models.CharField(max_length=70)
+    mae = models.CharField(max_length=256)
+    pai = models.CharField(max_length=256)
 
     class Meta:
         """Meta definition for Cliente."""
