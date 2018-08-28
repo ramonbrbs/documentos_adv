@@ -156,8 +156,7 @@ style='font-size:10.0pt;line-height:150%;font-family:"Cambria",serif'>,
 {{cliente.telefone}}, {% if cliente.telefone %} {{cliente.telefone}} {% else %}sem endereço eletrônico{% endif %} (e-mail),<b> </b>{{cliente.banco}}, Agência {{cliente.banco_agencia}}, Operação {{cliente.banco_operacao}}, Conta nº {{cliente.banco_conta}}, {{cliente.nascimento}},
 filho de {{cliente.mae}}, e de outro, como <b>CONTRATADO</b>,
 {{advogado.nome}}, sociedade de advogados inscrita no CNPJ sob
-número {{advogado.sociedade_cnpj}}, OAB/PR nº 4416, com sede na Rua Paraná, 3033, 14º
-Andar, Centro, Cascavel – PR, representada por BRUNO PELLIZZETTI, {{advogado.nacionalidade}},
+número {{advogado.sociedade_cnpj}}, OAB/{{advogado.oab_estado}} nº {{advogado.oab}}, com sede em {{advogado.endereco}}, representada por {{advogado.nome}}, {{advogado.nacionalidade}},
 {{advogado.estado_civil}}, advogado, inscrito na Ordem dos Advogados do Brasil, secção do Paraná
 sob nº 54.159,</span> <span style='font-family:"Cambria",serif'>têm, justo e
 acertado este contrato de prestação de serviços advocatícios, mediante as

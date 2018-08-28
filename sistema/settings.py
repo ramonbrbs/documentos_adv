@@ -25,7 +25,7 @@ SECRET_KEY = '9zhg64!^1fekwvn9*i09ufn0ofz*c*vh@kyfx1zcb*$cb)m&ch'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['python.rbarbosa.me']
+ALLOWED_HOSTS = ['python.rbarbosa.me','localhost']
 
 JET_SIDE_MENU_COMPACT = True
 
@@ -33,7 +33,8 @@ JET_SIDE_MENU_ITEMS = [
 
     {'label': 'Contratos',
     'items': [    
-        {'label': 'Procuração', 'url': {'type':'reverse', 'name':'contratos_procuracao'}}
+        {'label': 'Honorários', 'url': {'type':'reverse', 'name':'contratos_honorarios'}},
+        {'label': 'Procuração', 'url': {'type':'reverse', 'name':'contratos_procuracao'}},
             ]
     },
     {'app_label': 'clientes', 'items': [

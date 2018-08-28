@@ -18,4 +18,12 @@ class GerarContratoForm(forms.Form):
         self.user = kwargs.pop('user')
         super(GerarContratoForm, self).__init__(*args, **kwargs)
         self.fields['cliente'].queryset=queryset=Cliente.objects.filter(advogado=self.user)
+
+class ContratoHonorariosForm(forms.Form):
+    cliente = forms.ModelChoiceField(queryset=Cliente.objects.none())
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super(ContratoHonorariosForm, self).__init__(*args, **kwargs)
+        self.fields['cliente'].queryset=queryset=Cliente.objects.filter(advogado=self.user)
     

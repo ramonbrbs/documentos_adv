@@ -7,7 +7,7 @@ from django.views.generic import View
 import tempfile
 from io import BytesIO
 import pdfkit
-from .forms import GerarContratoForm
+from .forms import GerarContratoForm, ContratoHonorariosForm
 # Create your views here.
 
 
@@ -41,4 +41,15 @@ def gerarProcuracao(request):
             return render_to_pdf2('procuracao.html', {'cliente' : cli,'advogado':request.user,'acao':acao})       
     else:
         form = GerarContratoForm(user=request.user)
+    return render(request,'gerar.html',{'form':form})
+
+
+def gerarHonorarios(request):
+    if request.method == 'POST':
+        form = ContratoHonorariosForm(request.POST, user=request.user)
+        if form.is_valid():
+            cli = form.cleaned_data['cliente']
+            return render_to_pdf2('honorarios.html', {'cliente' : cli,'advogado':request.user})       
+    else:
+        form = ContratoHonorariosForm(user=request.user)
     return render(request,'gerar.html',{'form':form})

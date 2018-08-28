@@ -6,7 +6,14 @@ from .models import Usuario
 class UsuarioAdmin(admin.ModelAdmin):
     '''Admin View for Cliente '''
     fieldsets = (
-        (None, {
-            'fields': ('username','first_name','last_name','sexo','email','password','oab_estado','oab','nacionalidade','estado_civil',),
+        ("Informações Pessoais", {
+            'fields': ('first_name','last_name','sexo','email','password','oab_estado','oab','nacionalidade','estado_civil',),
         }),
     )
+
+    def save_model(self, request, obj, form, change):
+        if not obj.pk:
+            obj.username = obj.email
+            obj.set_password(obj.password)
+            obj.is_staff = True
+        super().save_model(request, obj, form, change)
