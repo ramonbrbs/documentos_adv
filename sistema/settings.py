@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import locale
+locale.setlocale(locale.LC_ALL, 'pt_BR')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -57,7 +59,17 @@ INSTALLED_APPS = [
     'advogados',
     'clientes',
     'contratos',
+    #'guardian',
+    'core',
+    'crispy_forms',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # this is default
+    #'guardian.backends.ObjectPermissionBackend',
+)
+
+#GUARDIAN_MONKEY_PATCH = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -140,3 +152,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'advogados.Usuario'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

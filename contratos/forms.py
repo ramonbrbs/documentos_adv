@@ -1,5 +1,6 @@
 from django import forms
 from clientes.models import Cliente
+from advogados.models import Sociedade
 
 
 class GerarContratoForm(forms.Form):
@@ -12,12 +13,15 @@ class GerarContratoForm(forms.Form):
     )
     cliente = forms.ModelChoiceField(queryset=Cliente.objects.none())
     tipo_acao = forms.ChoiceField(choices=tipos_acoes)
-
+    sociedade = forms.ModelChoiceField(queryset=Sociedade.objects.none())
+    cidade = forms.CharField(max_length=512, required=True)
+    
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
         super(GerarContratoForm, self).__init__(*args, **kwargs)
         self.fields['cliente'].queryset=queryset=Cliente.objects.filter(advogado=self.user)
+        self.fields['sociedade'].queryset=queryset=Sociedade.objects.filter(advogado=self.user)
 
 class ContratoHonorariosForm(forms.Form):
     cliente = forms.ModelChoiceField(queryset=Cliente.objects.none())

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Usuario
+from .models import Usuario, Sociedade
 
 # Register your models here.
 @admin.register(Usuario)
@@ -17,3 +17,8 @@ class UsuarioAdmin(admin.ModelAdmin):
             obj.set_password(obj.password)
             obj.is_staff = True
         super().save_model(request, obj, form, change)
+
+
+@admin.register(Sociedade)
+class SociedadeAdmin(admin.ModelAdmin):
+    pass

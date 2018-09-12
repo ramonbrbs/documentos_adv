@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title ">Sociedades</h4>
+                <p class="card-category"> Sociedades cadastradas</p>
+                <a href='{%url 'cadastrar_sociedade' %}' ><button class="btn btn-primary">Adicionar</button></a>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      
+                      <th>
+                        Nome
+                      </th>
+                      <th>
+                        OAB
+                      </th>
+                      
+                      
+                    </thead>
+                    <tbody>
+                        {% for soc in sociedade_list %}
+                            <tr>
+                                <td>
+                                        <a href="{{ soc.get_absolute_url }}">{{ soc }}</a> 
+                                </td>
+                                <td>
+                                    {{soc.oab}}
+                                </td>
+                                
+                                
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+{% comment %}
+    
+
+    
+<div class='container'>
+  <h1>Clientes</h1>
+  {% if cliente_list %}
+  <ul>
+    {% for cli in cliente_list %}
+      <li>
+        <a href="{{ cli.get_absolute_url }}">{{ cli }}</a> 
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}       
+</div>
+
+{% endcomment %}
+{% endblock %}

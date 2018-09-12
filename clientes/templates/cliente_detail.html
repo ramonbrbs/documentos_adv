@@ -1,0 +1,131 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header card-header-primary">
+      <h4 class="card-title">{{object.nome}}</h4>
+      <p class="card-category">{{object.get_tipo_display}}</p>
+      <a href='{% url 'cliente_editar' object.id %}'><button class="btn btn-primary">Editar</button></a>
+
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <label class="bmd-label-floating">Nome</label>
+            <input type="text" class="form-control" value="{{object.nome}}" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="bmd-label-floating">Sexo</label>
+            <input type="text" class="form-control" disabled value="{{object.get_sexo_display}}">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="bmd-label-floating">Nascimento</label>
+            <input type="email" class="form-control" disabled value="{{object.nascimento|date:'d/m/Y'}}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="bmd-label-floating">E-mail</label>
+            <input type="text" class="form-control" disabled value="{{object.email}}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="bmd-label-floating">Telefone</label>
+            <input type="text" class="form-control" disabled value="{{object.telefone}}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="bmd-label-floating">Endereço</label>
+            <input type="text" class="form-control" disabled value="{{object.endereco}}">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="bmd-label-floating">Nacionalidade</label>
+            <input type="text" class="form-control" disabled value="{{object.nacionalidade}}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="bmd-label-floating">Documento</label>
+            <input type="text" class="form-control" disabled value="{{object.documento}}">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="bmd-label-floating">RG</label>
+            <input type="text" class="form-control" disabled value="{{object.rg}}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="bmd-label-floating">Profissao</label>
+            <input type="text" disabled class="form-control" value="{{object.profissao}}">
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="bmd-label-floating">Mãe</label>
+            <input type="text" disabled class="form-control" value="{{object.mae}}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="bmd-label-floating">Pai</label>
+            <input type="text" disabled class="form-control" value="{{object.pai}}">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <legend>Informações Bancárias</legend>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="bmd-label-floating">Banco</label>
+            <input type="text" class="form-control" disabled value="{{object.banco}}">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="bmd-label-floating">Agência</label>
+            <input type="text" class="form-control" disabled value="{{object.banco_agencia}}">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="bmd-label-floating">Conta</label>
+            <input type="text" class="form-control" disabled value="{{object.banco_conta}}">
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+              <label class="bmd-label-floating">OP</label>
+              <input type="text" class="form-control" disabled value="{{object.banco_operacao}}">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

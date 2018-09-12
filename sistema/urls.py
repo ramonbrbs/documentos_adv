@@ -19,11 +19,14 @@ from django.conf.urls import url,include
 from contratos import views
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('', include('core.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='home_admin'),
     url(r'^procuracao/', views.proc2, name='procuracao'),
     path('contratos/', include('contratos.urls')),
+    path('advogados/', include('advogados.urls')),
+    path('clientes/', include('clientes.urls')),
 
 ]
 
