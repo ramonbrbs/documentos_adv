@@ -11,7 +11,8 @@ from .forms import GerarContratoForm, ContratoHonorariosForm
 import datetime
 # Create your views here.
 
-
+def index(request):
+    return render(request,'contratos.html')
 
 def render_to_pdf2(template_src, context_dict={}):
     template = get_template(template_src)
