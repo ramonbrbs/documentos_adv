@@ -52,6 +52,7 @@ def gerarProcuracao(request):
             cli = form.cleaned_data['cliente']
             acao = form.cleaned_data['tipo_acao']
             cidade = form.cleaned_data['cidade']
+            estado = form.cleaned_data['estado']
             
             return render_to_pdf2('contrato.htm', {'cliente' : cli,'advogado':request.user,'acao':acao,'data':data.strftime("%d de %B de %Y"),'cidade':cidade})       
     else:

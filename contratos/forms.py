@@ -16,6 +16,7 @@ class GerarContratoForm(forms.Form):
     tipo_acao = forms.ChoiceField(choices=tipos_acoes)
     sociedade = forms.ModelChoiceField(queryset=Sociedade.objects.none())
     cidade = forms.CharField(max_length=512, required=True)
+    estado = forms.CharField(max_length=2, required=True)
     
     helper = FormHelper()
     helper.add_input(Submit('submit', 'Submit', css_class='btn-primary'))
