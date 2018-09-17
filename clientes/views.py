@@ -7,8 +7,10 @@ from django.http import Http404
 from crispy_forms.helper import FormHelper, Layout
 from crispy_forms.layout import Field, Div, Fieldset, Row, HTML, Submit, Hidden
 from crispy_forms.bootstrap import InlineRadios
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class ClienteCreate(CreateView):
+class ClienteCreate(LoginRequiredMixin,CreateView):
     model = Cliente
     template_name = 'cliente_create.html'
     fields = ('nome','tipo','sexo','documento','rg','email','nascimento','nacionalidade','estado_civil','endereco','profissao','telefone','banco','banco_agencia','banco_operacao','banco_conta','mae','pai')
@@ -76,11 +78,11 @@ class ClienteCreate(CreateView):
         self.object.save()
         return redirect('/')
 
-class ClienteDetalhe(DetailView):
+class ClienteDetalhe(LoginRequiredMixin,DetailView):
     model = Cliente
     template_name = 'cliente_detail.html'
 
-class ClienteList(ListView):
+class ClienteList(LoginRequiredMixin,ListView):
     model = Cliente
     template_name = 'cliente_list.html'
 
@@ -90,7 +92,7 @@ class ClienteList(ListView):
         return queryset
 
 
-class ClienteUpdate(UpdateView):
+class ClienteUpdate(LoginRequiredMixin,UpdateView):
     model = Cliente
     fields = '__all__'
     template_name = 'cliente_create.html'

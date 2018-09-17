@@ -7,9 +7,10 @@ from django.shortcuts import redirect, reverse
 from crispy_forms.helper import FormHelper, Layout
 from crispy_forms.layout import Field, Div, Fieldset, Row, HTML, Submit, Hidden
 from crispy_forms.bootstrap import InlineRadios
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-class SociedadeUpdate(UpdateView):
+class SociedadeUpdate(LoginRequiredMixin,UpdateView):
     model = Sociedade
     template_name = 'cadastro_sociedade.html'
     fields = ('nome', 'cnpj', 'endereco', 'oab', 'banco', 'conta', 'agencia')
@@ -50,7 +51,7 @@ class SociedadeUpdate(UpdateView):
         )
         return form
 
-class SocieadeDetail(DetailView):
+class SocieadeDetail(LoginRequiredMixin,DetailView):
     model = Sociedade
     template_name = 'detalhe_sociedade.html'
 
@@ -62,7 +63,7 @@ class SocieadeDetail(DetailView):
             return super().dispatch(request, *args, *kwargs)
 
 
-class SociedadeList(ListView):
+class SociedadeList(LoginRequiredMixin,ListView):
     model = Sociedade
     template_name = 'lista_sociedade.html'
 
@@ -72,7 +73,7 @@ class SociedadeList(ListView):
         return queryset
 
 
-class SociedadeCreate(CreateView):
+class SociedadeCreate(LoginRequiredMixin,CreateView):
     model = Sociedade
     fields = ('nome', 'cnpj', 'endereco', 'oab', 'banco', 'conta', 'agencia')
     template_name = 'cadastro_sociedade.html'
@@ -120,6 +121,17 @@ class AdvogadoCreate(CreateView):
               'oab_estado', 'oab', 'nacionalidade', 'estado_civil')
     template_name = 'cadastro_usuario.html'
 
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.helper = FormHelper()
+        form.helper.layout = Layout(
+            Fieldset('Informações Pessoais','first_name', 'last_name', 'sexo', 'email', 'password',
+              'oab_estado', 'oab', 'nacionalidade', 'estado_civil'),
+              
+        )
+        
+        return form
+
     def form_valid(self, form):
         self.object = form.save(commit=False)
         # things
@@ -137,7 +149,7 @@ class AdvogadoCreate(CreateView):
             return super().dispatch(request, *args, *kwargs)
 
 
-class AdvogadoUpdate(UpdateView):
+class AdvogadoUpdate(LoginRequiredMixin,UpdateView):
     model = Usuario
     fields = ('first_name', 'last_name', 'sexo', 'email', 'password',
               'oab_estado', 'oab', 'nacionalidade', 'estado_civil')

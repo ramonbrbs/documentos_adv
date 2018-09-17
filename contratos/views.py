@@ -9,8 +9,11 @@ from io import BytesIO
 import pdfkit
 from .forms import GerarContratoForm, ContratoHonorariosForm
 import datetime
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
+@login_required
 def index(request):
     return render(request,'contratos.html')
 
@@ -38,7 +41,7 @@ def proc2(request):
 def procuracao(request):
     return render_to_pdf2('procuracao.html')
 
-#sociedade, acao, data
+@login_required
 def gerarProcuracao(request):
     
     if request.method == 'POST':
@@ -55,7 +58,7 @@ def gerarProcuracao(request):
         form = GerarContratoForm(user=request.user)
     return render(request,'gerar.html',{'form':form})
 
-
+@login_required
 def gerarHonorarios(request):
     if request.method == 'POST':
         form = ContratoHonorariosForm(request.POST, user=request.user)
