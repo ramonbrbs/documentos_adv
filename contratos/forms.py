@@ -1,7 +1,8 @@
 from django import forms
 from clientes.models import Cliente
 from advogados.models import Sociedade
-
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 class GerarContratoForm(forms.Form):
     tipos_acoes = (
@@ -16,6 +17,9 @@ class GerarContratoForm(forms.Form):
     sociedade = forms.ModelChoiceField(queryset=Sociedade.objects.none())
     cidade = forms.CharField(max_length=512, required=True)
     
+    helper = FormHelper()
+    helper.add_input(Submit('submit', 'Submit', css_class='btn-primary'))
+    helper.form_method = 'POST'
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')

@@ -1,16 +1,17 @@
+{% extends "base.html" %}
 
-{% extends "admin/base_site.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-<h1 id="site-name">My custom Admin</h1>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title ">Contrato</h4>
 
-<body>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
-        </form>
-
-</body>
-
-
+        </div>
+        <div class="card-body">
+            <div id='form-errors'>{{ form_errors }}</div>
+            {% crispy form %}
+        </div>
+    </div>
+</div>
 {% endblock %}

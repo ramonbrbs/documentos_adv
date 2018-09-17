@@ -166,15 +166,7 @@ margin-left:99.25pt;text-align:justify;text-indent:-99.25pt;line-height:150%'><b
 style='font-size:10.0pt;line-height:150%;font-family:"Cambria",serif'>OUTORGADOS      </span></b><span
 style='font-size:10.0pt;line-height:150%;font-family:"Cambria",serif'>:        {{advogado.first_name}}, {{advogado.nacionalidade}}{% if advogado.estado_civil %}, {{advogado.estado_civil}} {% endif %}, inscrito na OAB/{{advogado.oab_estado}} nº {{advogado.oab}}{%if sociedade %}, integrante da
 {{sociedade.nome}}, inscrita sob o CNPJ nº {{sociedade.cnpj}} {% endif %},
-EDUARDA SCARIOTT DE ALMEIDA, brasileira, solteira, inscrita na OAB/PR Nº
-86.958, JAQUELINE ANDRADE BICUDO, brasileira, em união estável, inscrita na
-OAB/PR Nº 88.183, RAFAEL PEDRO MAYER DEPUBEL, brasileiro, solteiro, inscrito na
-OAB/PR nº 92.134, todos advogados, EDUARDO HAMILTON WALBER, brasileiro,
-solteiro, estagiário, inscrito no CPF n° 063.989.629-40, JOAO AUGUSTO PRADO,
-brasileiro, em união estável, estagiário, inscrito no CPF n° 080.391.959-00,
-todos, inclusive a sociedade com escritório e sede profissional à Rua Paraná,
-3033, Ed. Formato, 14º Andar - Cascavel - PR e com endereço eletrônico em
-contato@pellizzetti.adv.br;</span></p>
+</span></p>
 
 <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
 margin-left:99.25pt;text-indent:-99.25pt;line-height:150%'><b><span
@@ -238,20 +230,15 @@ font-family:"Arial Black",sans-serif'>CONTRATO DE HONORÁRIOS</span></b></p>
 <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
 margin-left:0cm;text-align:justify;line-height:150%'><span style='font-family:
 "Cambria",serif'>De um lado, como<b> CONTRATANTE</b>, </span><span
-style='font-size:10.0pt;line-height:150%;font-family:"Cambria",serif'>NILTON DO
-NASCIMENTO</span><span
+style='font-size:10.0pt;line-height:150%;font-family:"Cambria",serif'>{{cliente.nome}}</span><span
 style='font-size:10.0pt;line-height:150%;font-family:"Cambria",serif'>,
-brasileiro, casado, auxiliar de depósito, portador do RG sob nº 5.229.410-0
-SSP/PR, e inscrito sob CPF nº 757.445.549-04 residente e domiciliado à Rua
-Haiti, nº 308, Periolo, Cascavel – PR,</span><span style='font-family:"Cambria",serif'>
-(45) 99862-2686, sem endereço eletrônico (e-mail),<b> </b>Banco Caixa Econômica
-Federal (104), Agência 1445, Operação 013 (Poupança), Conta nº 00016890-9, 02/03/1970,
-filho de VICENTINA PIRES DA SILVA, e de outro, como <b>CONTRATADO</b>,
-PELLIZZETTI ADVOGADOS ASSOCIADOS, sociedade de advogados inscrita no CNPJ sob
-número 23.583.964/0001-05, OAB/PR nº 4416, com sede na Rua Paraná, 3033, 14º
-Andar, Centro, Cascavel – PR, representada por BRUNO PELLIZZETTI, brasileiro,
-solteiro, advogado, inscrito na Ordem dos Advogados do Brasil, secção do Paraná
-sob nº 54.159,</span> <span style='font-family:"Cambria",serif'>têm, justo e
+{{cliente.nacionalidade}}, {{cliente.estado_civil}}, {{cliente.profissao}}, {% if cliente.tipo == 'PF' %}, portador do RG sob nº {{cliente.rg}}, e inscrito sob CPF nº {{cliente.documento}}, {% else %}, inscrito sob CNPJ nº {{cliente.documento}} {% endif %} residente e domiciliado à Rua
+{{cliente.endereco}},</span><span style='font-family:"Cambria",serif'>
+{{cliente.telefone}}, {%if cliente.email%} {{cliente.email}} {% endif %},<b> </b>{{cliente.banco}}
+, Agência {{cliente.banco_agencia}}, Operação {{cliente.banco_agencia}}, Conta nº {{cliente.banco_conta}}, {{cliente.nascimento}},
+filho de {{cliente.mae}}, e de outro, como <b>CONTRATADO</b>,
+{{advogado.first_name}}, {{advogado.nacionalidade}}{% if advogado.estado_civil %}, {{advogado.estado_civil}} {% endif %}, inscrito na OAB/{{advogado.oab_estado}} nº {{advogado.oab}}{%if sociedade %}, integrante da
+{{sociedade.nome}}, inscrita sob o CNPJ nº {{sociedade.cnpj}} {% endif %},</span> <span style='font-family:"Cambria",serif'>têm, justo e
 acertado este contrato de prestação de serviços advocatícios, mediante as
 cláusulas e condições seguintes:</span></p>
 
